@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="photo">
+        <img src="assets/images/mika-baumeister-fsoqimtW8P4-unsplash.jpg" alt="a phone with eilfei tower image">
+    </div>
+    <div class="register">
+        <form [formGroup]="registerForm">
+            <h1 class="app-name">Instaclone</h1>
+            <h2 class="welcome_msg">Sign up to see photos and videos from your friends.</h2>
+            <button class="log_with_fb"><i class="fab fa-facebook-square"></i> Login with Facebook</button>
+            <div class="or_container">
+                <div class="line"></div>
+                <span>OR</span>
+                <div class="line"></div>
+            </div>
+            <span class="required"
+            *ngIf="registerForm.get('email').errors?.required && registerForm.get('email').touched"
+            >This field is required</span>
+            <span class="required"
+            *ngIf="registerForm.get('email').errors?.email && registerForm.get('email').touched"
+            >Invalid email adress</span>
+            <input type="text" 
+            placeholder="Email Address" 
+            formControlName="email" 
+            (change)="onChange($event.target)"
+            [ngClass]="{'invalid': registerForm.get('email').errors && registerForm.get('email').touched}">
+            
+            <span class="required"
+            *ngIf="registerForm.get('fullName').errors?.required && registerForm.get('fullName').touched"
+            >This field is required</span>
+            <span class="required"
+            *ngIf="registerForm.get('fullName').errors?.pattern && registerForm.get('fullName').touched"
+            >Names can contain only leters, underscore and space</span>
+            <input type="text" 
+            placeholder="Full Name" 
+            formControlName="fullName"
+            [ngClass]="{'invalid': registerForm.get('fullName').errors && registerForm.get('fullName').touched}">
+            
+            <span class="required"
+            *ngIf="registerForm.get('username').errors?.required && registerForm.get('username').touched"
+            >This field is required</span>
+            <input type="text" 
+            placeholder="Username" 
+            formControlName="username"
+            [ngClass]="{'invalid': registerForm.get('username').errors && registerForm.get('username').touched}"
+            >
+
+            <span class="required"
+            *ngIf="registerForm.get('password').errors?.required && registerForm.get('password').touched"
+            >This field is required</span>
+            <input type="password" 
+            placeholder="Password" 
+            formControlName="password"
+            [ngClass]="{'invalid': registerForm.get('password').errors && registerForm.get('password').touched}"
+            >
+            
+            <button class="register_btn" 
+            (click)="register()" 
+            [disabled]="registerForm.invalid && registerForm.touched"
+            [ngClass]="{'disabled': registerForm.invalid}"
+            >Sign up</button>
+            <p class="terms">By signing up you agree to our <strong>Terms, Data Policy</strong>  and 
+                <strong>Cookies Policy.</strong> </p>
+        </form>
+        <p class="last_p">Have an account? <a [routerLink]="['/user/login']">Login</a></p>
+    </div>
+</div>

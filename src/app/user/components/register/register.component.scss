@@ -1,0 +1,103 @@
+@import '../../../shared/variables.scss';
+
+.container{
+    display:grid;
+    grid-template-areaS: "image-div form-div";
+    grid-gap:7%;
+    padding: 5% 20%;
+}
+form{
+    border: 1px solid #dbdbdb;
+    background-color:white;
+    width: 352px;
+    padding: 1rem 2rem;
+}
+img{
+    width:400px;
+    height:500px;
+    border-radius: 10px;
+}
+h1.app-name{
+    font-family:'Catalish Huntera';
+    text-align: center;
+    font-size:  35px;
+    user-select: none;
+}
+h2.welcome_msg{
+    color: #8e8e8e;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 1rem 0;
+}
+button.log_with_fb, .register_btn{
+    width: 100%;
+    height: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    background-color: $login-blue;
+    border: 0;
+    border-radius: 5px;
+}
+div.or_container{
+    display:flex;
+    align-items: center;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    span{
+        margin-left: 25px;
+        margin-right: 25px;
+        color: #8e8e8e;
+        font-size: 14px;
+        font-weight:bold;
+    }
+}
+div.line{
+    border-top:1px solid #8e8e8e;
+    width: 39%;
+}
+input{
+    width: 100%;
+    height: 35px;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: $main-bg-color;
+    border:1px solid #dbdbdb;
+}
+input:focus{
+    outline: 1px solid #8e8e8e;
+}
+button.disabled{
+    background-color: $disabled-blue;
+    cursor:not-allowed;
+}
+p.terms{
+    font-size: 13px;
+    text-align:center;
+    color: #a1a1a1;
+    margin-top: 10px;
+}
+p.last_p{
+    text-align: center;
+    border: 1px solid #dbdbdb;
+    color:#262626;
+    font-size:14px;
+    padding: 1rem 0;
+    background-color: white;
+    margin-top: 1rem;
+    a{
+        text-decoration: none;
+        color:#48b3f9;
+    }
+}
+span.required{
+    font-style:italic;
+    color:red;
+    font-size:14px;
+}
+input.invalid {
+    border: 1px solid red;
+}
