@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'user-register',
@@ -7,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  constructor() { }
+  constructor( private authService: AuthService, private router: Router) { }
   ngOnInit(): void {
   }
 
@@ -19,19 +21,20 @@ export class RegisterComponent implements OnInit {
       Validators.required, Validators.pattern('[a-zA-Z ]*')
     ]),
     username: new FormControl("",[
-      Validators.required
-      // Validators.pattern('[a-zA-Z_]{0,30}*')
+      Validators.required, Validators.minLength(4),
+      Validators.pattern('[a-zA-Z_]*')
     ]),
     password: new FormControl("",[
-      Validators.required
+      Validators.required, Validators.minLength(6)
     ])
   });
   
 
   register(){
-    console.log(this.registerForm);
+    this.authService.register(this.registerForm.value);
+    this.router.navigate(['/validate-email']);
   }
-  
+
   onChange(target: any){
     console.log(this.registerForm);
   }

@@ -1,3 +1,4 @@
+import { AuthService } from './shared/services/auth.service';
 import { UserModule } from './user/user.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,7 +19,7 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
     AppRoutingModule,
     UserModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

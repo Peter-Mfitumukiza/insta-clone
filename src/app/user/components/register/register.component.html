@@ -1,6 +1,6 @@
 <div class="container">
     <div class="photo">
-        <img src="assets/images/mika-baumeister-fsoqimtW8P4-unsplash.jpg" alt="a phone with eilfei tower image">
+        <img src="assets/images/mika-baumeister-fsoqimtW8P4-unsplash.jpg" alt="a phone with eiffel tower image">
     </div>
     <div class="register">
         <form [formGroup]="registerForm">
@@ -21,7 +21,6 @@
             <input type="text" 
             placeholder="Email Address" 
             formControlName="email" 
-            (change)="onChange($event.target)"
             [ngClass]="{'invalid': registerForm.get('email').errors && registerForm.get('email').touched}">
             
             <span class="required"
@@ -47,6 +46,11 @@
             <span class="required"
             *ngIf="registerForm.get('password').errors?.required && registerForm.get('password').touched"
             >This field is required</span>
+            <span class="required"
+            *ngIf="registerForm.get('password').errors && registerForm.get('password').touched"
+            >
+            
+            </span>
             <input type="password" 
             placeholder="Password" 
             formControlName="password"

@@ -1,1 +1,39 @@
-<p>login works!</p>
+<div class="container">
+    <div class="register">
+        <form [formGroup]="loginForm">
+            <h1 class="app-name">Instaclone</h1>
+
+            <span class="required"
+            *ngIf="loginForm.get('email').errors?.required && loginForm.get('email').touched"
+            >This field is required</span>
+            <input type="text" 
+            placeholder="Email Address" 
+            formControlName="email" 
+            [ngClass]="{'invalid': loginForm.get('email').errors && loginForm.get('email').touched}">
+            
+            <span class="required"
+            *ngIf="loginForm.get('password').errors?.required && loginForm.get('password').touched"
+            >This field is required</span>
+            <input type="password" 
+            placeholder="Password" 
+            formControlName="password"
+            [ngClass]="{'invalid': loginForm.get('password').errors && loginForm.get('password').touched}">
+
+            <button class="register_btn" 
+            (click)="login()" 
+            [disabled]="loginForm.invalid && loginForm.touched"
+            [ngClass]="{'disabled': loginForm.invalid}"
+            >Sign up</button>
+
+            <div class="or_container">
+                <div class="line"></div>
+                <span>OR</span>
+                <div class="line"></div>
+            </div>
+            <button class="login_with_fb"><i class="fab fa-facebook-square"></i> Login with Facebook</button>
+            <a class="reset" href="">Forgot password?</a>
+
+        </form>
+        <p class="last_p">Don't have an account? <a [routerLink]="['/user/register']">Sign up</a></p>
+    </div>
+</div>
