@@ -11,20 +11,44 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) { }
+
+  invalidCred: boolean = false;
+  logginIn = false;
+
+  // Login form
   loginForm = new FormGroup({
     email: new FormControl("", [
-      Validators.required
+      Validators.required, Validators.email
     ]),
     password: new FormControl("",[
-      Validators.required
+      Validators.required, Validators.minLength(6)
     ])
   });
-
+// cicada 3301
   login(){
-    this.authService.login(this.loginForm.value);
-    this.router.navigate(['/navbar']);
+    this.logginIn = true;
+    this.authService.login(this.loginForm.value).subscribe((res: any) => {
+      if(res.status === "success"){
+        window.localStorage.setItem('token', res.data);
+        this.router.navigate(['/navbar']);
+      }else if (res.status === "error"){
+        this.logginIn = false;
+        this.invalidCred = true;
+      }
+    },
+    err => {
+      this.logginIn = false;
+      console.log(err);
+    });
   }
 
+  disableInvalidCred(){
+    this.invalidCred = false;
+  }
+
+  toForgotPassword(){
+    this.router.navigate(['/user/forgot-password']);
+  }
   ngOnInit(): void {
   }
 

@@ -2,38 +2,55 @@
     <div class="register">
         <form [formGroup]="loginForm">
             <h1 class="app-name">Instaclone</h1>
-
+            <p *ngIf="invalidCred" class="invalidCred">Invaild Email or Password.</p>
+            
             <span class="required"
             *ngIf="loginForm.get('email').errors?.required && loginForm.get('email').touched"
             >This field is required</span>
+            <span class="required"
+            *ngIf="loginForm.get('email').errors?.email && loginForm.get('email').touched"
+            >Invalid email address.</span>
             <input type="text" 
             placeholder="Email Address" 
             formControlName="email" 
+            (focus)="disableInvalidCred()"
             [ngClass]="{'invalid': loginForm.get('email').errors && loginForm.get('email').touched}">
             
             <span class="required"
             *ngIf="loginForm.get('password').errors?.required && loginForm.get('password').touched"
             >This field is required</span>
+            <span class="required"
+            *ngIf="loginForm.get('password').errors?.minlength && loginForm.get('password').touched"
+            >Password should be at least 6 characters long.</span>
             <input type="password" 
             placeholder="Password" 
             formControlName="password"
+            (focus)="disableInvalidCred()"
             [ngClass]="{'invalid': loginForm.get('password').errors && loginForm.get('password').touched}">
 
             <button class="register_btn" 
             (click)="login()" 
             [disabled]="loginForm.invalid && loginForm.touched"
             [ngClass]="{'disabled': loginForm.invalid}"
-            >Sign up</button>
+            >
+            <ng-container *ngIf="logginIn; else defaultText">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>     
+            </ng-container>
+            </button>
 
+            <ng-template #defaultText>Sign up</ng-template>
             <div class="or_container">
                 <div class="line"></div>
                 <span>OR</span>
                 <div class="line"></div>
             </div>
             <button class="login_with_fb"><i class="fab fa-facebook-square"></i> Login with Facebook</button>
-            <a class="reset" href="">Forgot password?</a>
+            <a class="reset" (click)="toForgotPassword()">Forgot password?</a>
 
         </form>
         <p class="last_p">Don't have an account? <a [routerLink]="['/user/register']">Sign up</a></p>
     </div>
 </div>
+
