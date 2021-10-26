@@ -13,7 +13,7 @@ const userRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'validate-email', component: ValidateEmailComponent},
+  {path: 'verify-email', component: ValidateEmailComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: '',redirectTo:"/login", pathMatch:"full"},
   {path: '**', component: NotFoundComponent}

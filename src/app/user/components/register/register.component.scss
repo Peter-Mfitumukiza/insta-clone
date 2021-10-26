@@ -1,16 +1,18 @@
 @import '../../../shared/variables.scss';
-
+@import url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css');
 
 .container{
-    display:grid;
-    grid-template-areaS: "image-div form-div";
-    padding: 3% 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width:100vw;
-    .photo, .register{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    height: 100vh;
+    padding-top: 10px;
+    .photo{
+        margin-right: 1rem;
+    }
+    .register{
+        margin-left: 1rem;
     }
 }
 form{
@@ -112,11 +114,16 @@ input.invalid {
 
 @media screen and (max-width: 450px) {
     .container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
         .photo{
             display: none;
+            margin: 0
+        }
+        .register{
+            margin: 0;
         }
     }
+}
+.spinner-border{
+    height: 23px;
+    width: 23px;
 }

@@ -24,13 +24,13 @@ export class LoginComponent implements OnInit {
       Validators.required, Validators.minLength(6)
     ])
   });
-// cicada 3301
+
   login(){
     this.logginIn = true;
     this.authService.login(this.loginForm.value).subscribe((res: any) => {
       if(res.status === "success"){
         window.localStorage.setItem('token', res.data);
-        this.router.navigate(['/navbar']);
+        this.router.navigate(['/home']);
       }else if (res.status === "error"){
         this.logginIn = false;
         this.invalidCred = true;

@@ -12,6 +12,9 @@
                 <span>OR</span>
                 <div class="line"></div>
             </div>
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                {{errorMessage}}
+            </div>
             <span class="required"
             *ngIf="registerForm.get('email').errors?.required && registerForm.get('email').touched"
             >This field is required</span>
@@ -24,15 +27,15 @@
             [ngClass]="{'invalid': registerForm.get('email').errors && registerForm.get('email').touched}">
             
             <span class="required"
-            *ngIf="registerForm.get('fullName').errors?.required && registerForm.get('fullName').touched"
+            *ngIf="registerForm.get('fullname').errors?.required && registerForm.get('fullname').touched"
             >This field is required</span>
             <span class="required"
-            *ngIf="registerForm.get('fullName').errors?.pattern && registerForm.get('fullName').touched"
+            *ngIf="registerForm.get('fullname').errors?.pattern && registerForm.get('fullname').touched"
             >Names can contain only leters, underscore and space</span>
             <input type="text" 
             placeholder="Full Name" 
-            formControlName="fullName"
-            [ngClass]="{'invalid': registerForm.get('fullName').errors && registerForm.get('fullName').touched}">
+            formControlName="fullname"
+            [ngClass]="{'invalid': registerForm.get('fullname').errors && registerForm.get('fullname').touched}">
             
             <span class="required"
             *ngIf="registerForm.get('username').errors?.required && registerForm.get('username').touched"
@@ -61,7 +64,14 @@
             (click)="register()" 
             [disabled]="registerForm.invalid && registerForm.touched"
             [ngClass]="{'disabled': registerForm.invalid}"
-            >Sign up</button>
+            >
+                <ng-container *ngIf="registering; else defaultText">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>     
+                </ng-container>
+                <ng-template #defaultText>Sign up</ng-template>
+            </button>
             <p class="terms">By signing up you agree to our <strong>Terms, Data Policy</strong>  and 
                 <strong>Cookies Policy.</strong> </p>
         </form>

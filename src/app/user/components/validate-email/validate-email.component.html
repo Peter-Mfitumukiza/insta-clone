@@ -1,1 +1,44 @@
-<p>validate-email works!</p>
+<div class="container">
+    <div class="register">
+        <form [formGroup]="verifyMailForm">
+            <h1 class="app-name">Instaclone</h1>
+            <p class="having_issues">Enter the verification code sent to the email address {{userEmail}}.</p>
+            <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+                {{errorMessage}}
+            </div>
+            <span class="required"
+            *ngIf="verifyMailForm.get('code').errors?.required && verifyMailForm.get('code').touched"
+            >This field is required</span>
+            <span class="required"
+            *ngIf="(verifyMailForm.get('code').errors?.minlength || verifyMailForm.get('code').errors?.maxlength) 
+            && verifyMailForm.get('code').touched"
+            >The code must be 6 characters.</span>
+            <input type="text"
+            placeholder="Code" 
+            formControlName="code"
+            [ngClass]="{'invalid': verifyMailForm.get('code').errors && verifyMailForm.get('code').touched}">
+
+            <button class="register_btn" 
+            (click)="submit()" 
+            [disabled]="verifyMailForm.invalid && verifyMailForm.touched"
+            [ngClass]="{'disabled': verifyMailForm.invalid}"
+            >
+            <ng-container *ngIf="isChecking; else defaultText">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>     
+            </ng-container>
+            <ng-template #defaultText>Submit</ng-template>
+            </button>
+
+            <div class="or_container">
+                <div class="line"></div>
+                <span>OR</span>
+                <div class="line"></div>
+            </div>
+            <a class="reset" (click)="backToLogin()">Back to Login</a>
+
+        </form>
+    </div>
+</div>
+

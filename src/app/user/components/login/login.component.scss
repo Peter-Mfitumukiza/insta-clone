@@ -1,5 +1,4 @@
 @import '../register/register.component.scss';
-@import url('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/css/bootstrap.min.css');
 .container{
     width:100vw;
     height: 100vh;
@@ -42,11 +41,3 @@ a.reset{
     margin-bottom: 10px;
 }
 
-.spinner-border{
-    height: 23px;
-    width: 23px;
-}
-::placeholder{
-    // font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size:14px;
-}

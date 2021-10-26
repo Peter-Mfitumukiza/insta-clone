@@ -13,3 +13,6 @@ body{
 button, a{
     cursor:pointer;
 }
+::placeholder{
+    font-size:14px;
+}
