@@ -18,7 +18,7 @@ export class ValidateEmailComponent implements OnInit {
   ngOnInit(): void {
     this.verifyMailForm = new FormGroup({
       code: new FormControl("", [
-        Validators.required, Validators.minLength(6), Validators.maxLength(6)
+        Validators.required, Validators.maxLength(6)
       ])
     });
   }

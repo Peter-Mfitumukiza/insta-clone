@@ -18,10 +18,13 @@ export class AuthService {
     return this.http.post("http://localhost:4000/auth/login", userData)
   }
   forgotPass(email: string){
-
+    return this.http.post("http://localhost:4000/user/send-link", email);
   }
-  checkCode(code: string, email ){
-    return this.http.post("http://localhost:4000/user/check-code", {code: code, email: email});
+  checkCode(code: string, email:string ){
+    return this.http.post("http://localhost:4000/user/check-code", {code, email});
+  }
+  checkResetId(reset_id: string){
+    return this.http.post("http://localhost:4000/user/check-resetid", {reset_id});
   }
 
 }

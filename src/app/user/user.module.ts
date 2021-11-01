@@ -7,7 +7,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './../shared/components/not-found/not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ValidateEmailComponent } from './components/validate-email/validate-email.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component'
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component'
 
 const userRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -15,6 +16,7 @@ const userRoutes: Routes = [
   {path: 'profile', component: ProfileComponent},
   {path: 'verify-email', component: ValidateEmailComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
+  {path: 'reset-password/:reset_id', component: ResetPasswordComponent},
   {path: '',redirectTo:"/login", pathMatch:"full"},
   {path: '**', component: NotFoundComponent}
 ];
@@ -25,7 +27,8 @@ const userRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     ValidateEmailComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ResetPasswordComponent
   ],
     imports:[
         CommonModule,

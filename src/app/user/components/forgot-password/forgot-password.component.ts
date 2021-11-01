@@ -11,6 +11,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class ForgotPasswordComponent implements OnInit {
 
   constructor( private authService: AuthService, private router: Router ) { }
+  errorMessage="";
+  sendingLink = false;
   forgotPassForm = new FormGroup({
     email: new FormControl("", [
       Validators.required, Validators.email
@@ -18,8 +20,23 @@ export class ForgotPasswordComponent implements OnInit {
   });
 
   sendMail(){
-    this.authService.forgotPass(this.forgotPassForm.value);
-    this.router.navigate(['/navbar']);
+    this.sendingLink = true;
+    this.authService.forgotPass(this.forgotPassForm.value).subscribe(
+      (res: any) =>{
+        if(res.status == "success"){
+          alert("Check your email inbox for the link to your reset password.");
+          this.sendingLink = false;
+          this.router.navigate(['/login']);
+        }
+        if(res.status == "error"){
+          this.errorMessage = res.message;
+          this.sendingLink = false;
+        }
+      },  
+      error => {
+        console.log("An error occurred sending reset link!");
+      }
+    );
   }
 
   backToLogin(){
