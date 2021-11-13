@@ -15,7 +15,7 @@ export class AuthService {
   }
 
   login(userData: UserCred){
-    return this.http.post("http://localhost:4000/auth/login", userData)
+    return this.http.post("http://localhost:4000/auth/login", userData);
   }
   forgotPass(email: string){
     return this.http.post("http://localhost:4000/user/send-link", email);
