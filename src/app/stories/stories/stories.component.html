@@ -1,7 +1,71 @@
-<div class="stories__container">
-    <div class="story">
-        <img src="/assets/images/Visit-Rwanda_-Lake-Kivu-Drone-of-Islands-700x525.jpg" 
-        alt="Someone's story">
-        <p>MPeter</p>
+<div class="stories__container" >
+    <span class="arrow__container left" 
+    *ngIf = "displayRight"
+    (click)="onScrollRight(thediv)">
+        <i class="fas fa-chevron-left"></i>
+    </span>
+    <div class="overflow__container" #thediv>
+        <div class="story">
+            <img src="/assets/images/Visit-Rwanda_-Lake-Kivu-Drone-of-Islands-700x525.jpg" 
+            alt="Someone's story">
+            <p>mpeter</p>
+        </div>
+        <div class="story">
+            <img src="/assets/images/Visit-Rwanda_-Lake-Kivu-Drone-of-Islands-700x525.jpg" 
+            alt="Someone's story">
+            <p>mpeter</p>
+        </div>
+        <div class="story">
+            <img src="/assets/images/Visit-Rwanda_-Lake-Kivu-Drone-of-Islands-700x525.jpg" 
+            alt="Someone's story">
+            <p>mpeter</p>
+        </div>
+        <div class="story">
+            <img src="/assets/images/Visit-Rwanda_-Lake-Kivu-Drone-of-Islands-700x525.jpg" 
+            alt="Someone's story">
+            <p>mpeter</p>
+        </div>
+        <div class="story">
+            <img src="/assets/images/Visit-Rwanda_-Lake-Kivu-Drone-of-Islands-700x525.jpg" 
+            alt="Someone's story">
+            <p>mpeter</p>
+        </div>
+        <div class="story">
+            <img src="/assets/images/Visit-Rwanda_-Lake-Kivu-Drone-of-Islands-700x525.jpg" 
+            alt="Someone's story">
+            <p>mpeter</p>
+        </div>
+        <div class="story">
+            <img src="/assets/images/Visit-Rwanda_-Lake-Kivu-Drone-of-Islands-700x525.jpg" 
+            alt="Someone's story">
+            <p>rpromesse</p>
+        </div>
+        <div class="story">
+            <img src="/assets/images/Visit-Rwanda_-Lake-Kivu-Drone-of-Islands-700x525.jpg" 
+            alt="Someone's story">
+            <p>mpeter</p>
+        </div>
+        <div class="story">
+            <img src="/assets/images/Visit-Rwanda_-Lake-Kivu-Drone-of-Islands-700x525.jpg" 
+            alt="Someone's story">
+            <p>mpeter</p>
+        </div>
+        <div class="story">
+            <img src="/assets/images/Visit-Rwanda_-Lake-Kivu-Drone-of-Islands-700x525.jpg" 
+            alt="Someone's story">
+            <p>mpeter</p>
+        </div>
+        <div class="story">
+            <img src="/assets/images/Visit-Rwanda_-Lake-Kivu-Drone-of-Islands-700x525.jpg" 
+            alt="Someone's story">
+            <p>mpeter</p>
+        </div>
+        
     </div>
+    
+    <span class="arrow__container" 
+    *ngIf = "displayLeft"
+    (click)="onScrollLeft(thediv)">
+        <i class="fas fa-chevron-right"></i>
+    </span>
 </div>

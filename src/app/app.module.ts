@@ -10,6 +10,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { HomeComponent } from './posts/home/home.component';
 import { StoriesComponent } from './stories/stories/stories.component';
+import { PostComponent } from './posts/post/post.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { StoriesComponent } from './stories/stories/stories.component';
     NavbarComponent,
     NotFoundComponent,
     HomeComponent,
-    StoriesComponent
+    StoriesComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

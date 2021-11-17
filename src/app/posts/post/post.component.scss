@@ -1,0 +1,35 @@
+.post__container{
+    width: 45%;
+    height: 500px;
+    margin-left: 16%;
+    background-color: #fff;
+    border: 1px solid #dadada;
+    margin-top: 1rem;
+}
+
+.poster{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    // background-color: lightblue;
+    img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: .5rem;
+    }
+    a{
+        color: #262626;
+        font-weight: bold;
+    }
+}
+
+.images__container{
+    width: 100%;
+    img{
+        width: 100%;
+        height: auto;
+    }
+}
+
