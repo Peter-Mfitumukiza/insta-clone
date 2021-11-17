@@ -1,0 +1,14 @@
+:host{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+a{
+    text-decoration: none;
+    color:#203f7a;
+    font-size: 14px;
+    margin-top: 5px;
+}

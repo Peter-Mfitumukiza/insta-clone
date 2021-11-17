@@ -23,8 +23,12 @@ export class AuthService {
   checkCode(code: string, email:string ){
     return this.http.post("http://localhost:4000/user/check-code", {code, email});
   }
+  changePassword(password: string, user: any ){
+    return this.http.post("http://localhost:4000/user/change-password", {password, user});
+  }
   checkResetId(reset_id: string){
-    return this.http.post("http://localhost:4000/user/check-resetid", {reset_id});
+    return this.http.post("http://localhost:4000/user/check-reset-id", {reset_id});
   }
 
 }
+

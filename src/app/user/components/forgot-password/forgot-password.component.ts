@@ -26,7 +26,7 @@ export class ForgotPasswordComponent implements OnInit {
         if(res.status == "success"){
           alert("Check your email inbox for the link to your reset password.");
           this.sendingLink = false;
-          this.router.navigate(['/login']);
+          this.router.navigate(['/user/login']);
         }
         if(res.status == "error"){
           this.errorMessage = res.message;
@@ -34,6 +34,7 @@ export class ForgotPasswordComponent implements OnInit {
         }
       },  
       error => {
+        this.sendingLink = false;
         console.log("An error occurred sending reset link!");
       }
     );

@@ -1,1 +1,24 @@
-<p>navbar works!</p>
+<div class="navbar__container">
+    <div class="navbar">
+        <h1 class="app__name">Instaclone</h1>
+        <div class="search">
+            <i class="fas fa-search" *ngIf="!searchFocused && (searchInput.value == '')"></i>
+            <input type="text" #searchInput 
+            placeholder="Search" 
+            (blur) = "searchFocused = false;"
+            (focus)= "searchFocused = true;">
+            <i class="fas fa-times-circle" *ngIf="searchFocused"></i>
+        </div>
+        <div class="icons__container">
+            <!-- <i class="fas fa-home-alt"></i> -->
+            <img src="/assets/icons/icons8-home.svg" alt="home icon">
+            <img src="/assets/icons/icons8-facebook-messenger-96.png" alt="messeges icon">
+            <img src="/assets/icons/icons8-add-64.png" alt="Plus icon">
+            <img src="/assets/icons/icons8-compass-96.png" alt="Explore icon">
+            <img src="/assets/icons/icons8-heart-96.png" alt="Notifications icon">
+            <img src="/assets/images/Visit-Rwanda_-Lake-Kivu-Drone-of-Islands-700x525.jpg" 
+            alt="Profile pic"
+            class="profile__pic">
+        </div>
+    </div>
+</div>
