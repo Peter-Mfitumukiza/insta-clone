@@ -1,10 +1,14 @@
 .post__container{
     width: 45%;
-    height: 500px;
     margin-left: 16%;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     border: 1px solid #dadada;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 15px;
+    p{
+        margin-bottom: 0;
+    }
 }
 
 .poster{
@@ -12,7 +16,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    // background-color: lightblue;
     img{
         width: 40px;
         height: 40px;
@@ -33,3 +36,74 @@
     }
 }
 
+.icons__container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    .together_icons{
+        display: flex;
+        width: 20%;
+        justify-content: space-between;
+    }
+    .far{
+        font-size: 25px;
+        font-weight: light;
+    }
+}
+
+.details__container{
+    padding: 1rem;
+    padding-top: 0;
+    .likes{
+        font-weight:bold;
+    }
+    .post__description{
+        span{
+            font-weight: bold;
+        }
+    }
+
+    .view__comments{
+        color:#909090;
+        text-decoration: none;
+        :hover{
+            cursor: pointer;
+        }
+    }
+    .passed__time{
+        color: #909090;
+        font-size: 10px;
+    }
+    
+}
+
+.post__comment{
+    padding: .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-top: 1px solid #dadada;
+    .far{
+        font-size: 25px;
+        background-color: lightblue;
+    }
+    textarea{
+        height: 20px;
+        width: 83%;
+        border: 0;
+        resize: none;
+        outline: transparent;
+        overflow: auto;
+        background-color: green;
+        ::placeholder{
+            font-size: 18px !important;
+            opacity: 1;
+        }
+    }
+    button{
+        background-color: azure;
+
+    }
+}
