@@ -33,7 +33,7 @@
             [disabled]="loginForm.invalid && loginForm.touched"
             [ngClass]="{'disabled': loginForm.invalid}"
             >
-            <ng-container *ngIf="logginIn; else defaultText">
+            <ng-container *ngIf="loggingIn; else defaultText">
                 <div class="spinner-border" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>     

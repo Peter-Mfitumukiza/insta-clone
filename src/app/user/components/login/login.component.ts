@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   invalidCred: boolean = false;
-  logginIn = false;
+  loggingIn = false;
 
   // Login form
   loginForm = new FormGroup({
@@ -26,18 +26,18 @@ export class LoginComponent implements OnInit {
   });
 
   login(){
-    this.logginIn = true;
+    this.loggingIn = true;
     this.authService.login(this.loginForm.value).subscribe((res: any) => {
       if(res.status === "success"){
         window.localStorage.setItem('token', res.data);
         this.router.navigate(['/home']);
       }else if (res.status === "error"){
-        this.logginIn = false;
+        this.loggingIn = false;
         this.invalidCred = true;
       }
     },
     err => {
-      this.logginIn = false;
+      this.loggingIn = false;
       console.log(err);
     });
   }
@@ -50,6 +50,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/user/forgot-password']);
   }
   ngOnInit(): void {
+    this.authService.sampleTest().subscribe(res =>{
+      console.log(res);
+    })
   }
 
 }
