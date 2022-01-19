@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(this.registerForm.value).subscribe( (res:any) =>{
       if(res.status == "success"){
         window.localStorage.setItem('email', this.registerForm.controls.email.value);
-        this.router.navigate(['/verify-email']);
+        this.router.navigate(['/user/verify-email']);
       }else{
         this.registering = false;
         this.errorMessage = res.message;
